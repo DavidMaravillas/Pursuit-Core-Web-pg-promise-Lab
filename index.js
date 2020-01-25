@@ -1,25 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-    loadUsers();
-    const form = document.querySelector('#addUserForm');
-    form.addEventListener('submit', addUserFormSubmitted);
+document.addEventListener("DOMContentLoaded", () => {
+  // console.log("hello")
+  loadUsers();
+  const form = document.querySelector("#addUserForm");
+  form.addEventListener("submit", addUserFormSubmitted);
 });
 
-async function loadUsers() {
-    const usersList = document.querySelector('#usersList');
+const loadUsers = async () => {
+  try {
+    const usersList = document.querySelector("#usersList");
     usersList.innerHTML = "";
     const response = await axios.get(`http://localhost:3000/users/all`);
-    response.data.users.forEach((user) => {
-        let listItem = document.createElement("li");
-        listItem.innerText = `${user.firstname} ${user.lastname}, age ${user.age}`;
-        usersList.appendChild(listItem);
+    // debugger;
+    response.data.users.forEach(user => {
+      let listItem = document.createElement("li");
+      listItem.innerText = `${user.firstname} ${user.lastname},  ${user.age}`;
+      usersList.appendChild(listItem);
     });
-}
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-async function addUserFormSubmitted(event) {
-    event.preventDefault();    
-    const firstname = document.querySelector('#firstNameInput').value;
-    const lastname = document.querySelector('#lastNameInput').value;
-    const age = document.querySelector('#ageInput').value;
-    let response = await axios.post(`http://localhost:3000/users/register`, { firstname, lastname, age });
-    loadUsers();
+const addUserFormSubmitted = event => {
+  event.preventDefault();
+  const firstnameInput = document.querySelector("#firstNameInput").value;
+  const lastnameInput = document.querySelector("#lastNameInput").value;
+  const ageInput = document.querySelector("#ageInput").value;
+  debugger;
+  let response = axios.post("http://localhost:3000/users/register", {
+    firstname: firstnameInput.value,
+    lastname: lastnameInput.value,
+    age: ageInput.value
+  });
+//   debugger;
+
+  //   firstnameInput.innerHTML = "";
+  //   lastnameInput.innerHTML = "";
+  //   ageInput.innerHTML = "";
+
+  loadUsers();
+};
+
+const postsByUser = async () => {
+try {
+
+} catch (err) {
+    console.log(err)
+}
 }
