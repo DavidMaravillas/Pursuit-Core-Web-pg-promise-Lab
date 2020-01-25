@@ -1,0 +1,26 @@
+{
+  "name": "pursuit-core-web-pg-promise-intro",
+  "version": "1.0.0",
+  "description": "This app displays a list of users persisted to a SQL database and provides a UI for adding new users.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg-promise": "^9.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Intro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Intro/issues"
+  },
+  "homepage": "https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Intro#readme"
+}
